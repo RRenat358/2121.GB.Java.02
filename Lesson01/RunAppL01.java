@@ -3,8 +3,6 @@ package Lesson01;
 public class RunAppL01 {
     public static void main(String[] args) {
 
-
-
         System.out.println("––––––––––––––––––––––––––––––");
         Running human = new Human();
         Jump human2 = new Human();
