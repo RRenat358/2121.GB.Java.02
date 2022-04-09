@@ -1,12 +1,10 @@
 package Lesson01;
 
-import javax.xml.catalog.Catalog;
-import java.awt.*;
 
 public class RunAppL01 {
     public static void main(String[] args) {
 
-        System.out.println("––––––––––––––––––––––––––––––");
+        //––––––––––––––––––––––––––––––
         Track track = new Track();
         Wall wall = new Wall();
 
@@ -28,10 +26,16 @@ public class RunAppL01 {
 
         System.out.println("––––––––––––––––––––––––––––––");
 
-//        System.out.println("––––––––––––––––––––––––––––––");
+
+        Competitor[] competitor = new Competitor[3];
+        competitor[0] = new Track(human.running(human.nameHuman, human.distanceRun));
 
 
-        //––––––––––––––––––––––––––––––
+
+        System.out.println("––––––––––––––––––––––––––––––");
+
+
+
     }
 
 }
