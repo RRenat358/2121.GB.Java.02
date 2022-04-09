@@ -1,9 +1,7 @@
 package Lesson01;
 
 public class Wall {
-    static int wallHeight = 5;
-
-
+    static int wallHeight = 3;
 
 
 }
