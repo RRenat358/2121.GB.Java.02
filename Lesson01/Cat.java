@@ -1,4 +1,5 @@
 package Lesson01;
+/*
 
 public class Cat implements Running {
 
@@ -7,4 +8,6 @@ public class Cat implements Running {
         System.out.println("Кот пробежал: " + Track.trackLength);
     }
 
+
 }
+        */

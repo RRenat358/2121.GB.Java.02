@@ -4,17 +4,18 @@ public class RunAppL01 {
     public static void main(String[] args) {
 
         System.out.println("––––––––––––––––––––––––––––––");
-        Track human = new Track();
+        Track track = new Track();
+        Human human = new Human();
         Jump human2 = new Human();
-        human.Running();
-        human2.Jump();
+        track.running(human.who, human.distanceRun);
+        human2.jump();
         System.out.println("––––––––––––––––––––––––––––––");
-        Running cat = new Cat();
-        cat.Running();
-        System.out.println("––––––––––––––––––––––––––––––");
-        Running robot = new Robot();
-        robot.Running();
-        System.out.println("––––––––––––––––––––––––––––––");
+//        Running cat = new Cat();
+//        cat.Running();
+//        System.out.println("––––––––––––––––––––––––––––––");
+//        Running robot = new Robot();
+//        robot.Running();
+//        System.out.println("––––––––––––––––––––––––––––––");
 
 
         //––––––––––––––––––––––––––––––

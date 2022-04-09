@@ -1,4 +1,5 @@
 package Lesson01;
+/*
 
 public class Robot implements Running {
 
@@ -7,3 +8,4 @@ public class Robot implements Running {
         System.out.println("Робот пробежал: " + Track.trackLength);
     }
 }
+*/
