@@ -1,13 +1,9 @@
 package Lesson01;
-/*
 
-public class Cat implements Running {
-
-    @Override
-    public void Running() {
-        System.out.println("Кот пробежал: " + Track.trackLength);
-    }
+public class Cat {
+    String nameCat = "Кот";
+    int distanceRun = 200;
+    int heightJump = 3;
 
 
 }
-        */

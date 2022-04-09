@@ -1,11 +1,10 @@
 package Lesson01;
-/*
 
-public class Robot implements Running {
+public class Robot {
+    String nameRobot = "R2D2";
+    int distanceRun = 10;
+    int heightJump = 0;
 
-    @Override
-    public void Running() {
-        System.out.println("Робот пробежал: " + Track.trackLength);
-    }
+
 }
-*/
+
