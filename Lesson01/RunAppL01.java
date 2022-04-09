@@ -26,16 +26,22 @@ public class RunAppL01 {
 
         System.out.println("––––––––––––––––––––––––––––––");
 
-
-        Competitor[] competitor = new Competitor[3];
-        competitor[0] = new Track(human.running(human.nameHuman, human.distanceRun));
-
+        //======================================================================
+        Track[] trackArr = new Track[3];
+        trackArr[0] = new Track(human.nameHuman, human.distanceRun);
+        trackArr[1] = new Track(cat.nameCat, cat.distanceRun);
+        trackArr[2] = new Track(robot.nameRobot, robot.distanceRun);
 
 
         System.out.println("––––––––––––––––––––––––––––––");
 
 
 
+
+    }
+    //======================================================================
+    public static Track running(String name, int distanceRun) {
+        return new Track(name, distanceRun);
     }
 
 }
