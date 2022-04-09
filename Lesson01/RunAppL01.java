@@ -4,7 +4,7 @@ public class RunAppL01 {
     public static void main(String[] args) {
 
         System.out.println("––––––––––––––––––––––––––––––");
-        Running human = new Human();
+        Track human = new Track();
         Jump human2 = new Human();
         human.Running();
         human2.Jump();
