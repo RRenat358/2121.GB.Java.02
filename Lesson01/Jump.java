@@ -1,6 +1,6 @@
 package Lesson01;
 
 public interface Jump {
-    void jump();
 
+    void jump(String name, int heightJump);
 }

@@ -4,11 +4,14 @@ public class RunAppL01 {
     public static void main(String[] args) {
 
         System.out.println("––––––––––––––––––––––––––––––");
-        Track track = new Track();
         Human human = new Human();
-        Jump human2 = new Human();
-        track.running(human.who, human.distanceRun);
-        human2.jump();
+
+        Track track = new Track();
+        track.running(human.nameHuman, human.distanceRun );
+
+        Wall wall = new Wall();
+        wall.jump(human.nameHuman, human.heightJump);
+
         System.out.println("––––––––––––––––––––––––––––––");
 //        Running cat = new Cat();
 //        cat.Running();
