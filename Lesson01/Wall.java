@@ -3,6 +3,7 @@ package Lesson01;
 
 public class Wall implements Jump, Barrier {
     private int wallHeight = 3;
+    private static boolean canJumpin = false;
 
     public Wall() {
     }
@@ -23,7 +24,21 @@ public class Wall implements Jump, Barrier {
     //======================================================================
     @Override
     public void jump(String nameGroup, int jumpPower) {
-        System.out.println(nameGroup + " прыгнул : " + jumpPower + " из " + getWallHeight());
+//        System.out.println(nameGroup + " прыгнул : " + jumpPower + " из " + getWallHeight());
+        if (jumpPower <= 0) {
+            System.out.println(" ⭕ " + nameGroup + " не прыгнул: не умеет прыгать.");
+            this.canJumpin = false;
+            return;
+        }
+        if (jumpPower < this.wallHeight) {
+            System.out.println(" ❌ " + nameGroup + " не прыгнул. Не хватило " + (this.wallHeight - jumpPower) + " сил до " + this.wallHeight);
+            this.canJumpin = false;
+            return;
+        }
+        //jumpPower >= this.wallHeight
+        System.out.println(" ✅ " + nameGroup + " прыгнул через Стену: " + this.wallHeight);
+        this.canJumpin = true;
+
     }
 
 }

@@ -2,14 +2,15 @@ package Lesson01;
 
 
 public class Track implements Running/*, Barrier*/ {
-    private int trackLength = 1000;
+    private int trackLength = 100;
+    private static boolean canRuning = false;
 
     public Track() {
     }
 
     public Track(String nameGroup, int runPower) {
         //без этого↓ не получалось получить доступ к running(a,b)...
-        //потому что running(a,b) переопределён?, имплиментирован?
+        //не получалось, потому что running(a,b) переопределён?, имплиментирован?
         Track track = new Track();
         track.running(nameGroup, runPower);
     }
@@ -22,11 +23,32 @@ public class Track implements Running/*, Barrier*/ {
         this.trackLength = trackLength;
     }
 
+    public boolean isCanRuning() {
+        return canRuning;
+    }
+
+    public void setCanRunning(boolean canRuning) {
+        this.canRuning = canRuning;
+    }
+
     //======================================================================
     @Override
     public void running(String nameGroup, int runPower) {
-        System.out.println(nameGroup + " пробежал: " + runPower + " из " + this.trackLength);
+        if (runPower <= 0) {
+            System.out.println(" ⭕ " + nameGroup + " не пробежал: не умеет бегать.");
+            this.canRuning = false;
+            return;
+        }
+        if (runPower < this.trackLength) {
+            System.out.println(" ❌ " + nameGroup + " не пробежал. Не хватило " + (this.trackLength - runPower) + " сил до " + this.trackLength);
+            this.canRuning = false;
+            return;
+        }
+        //runPower >= this.trackLength
+        System.out.println(" ✅ " + nameGroup + " пробежал весь Трек: " + this.trackLength);
+        this.canRuning = true;
     }
+}
 
 
 //======================================================================
@@ -46,4 +68,4 @@ public class Track implements Running/*, Barrier*/ {
     }
 */
 //======================================================================
-}
+
