@@ -1,15 +1,15 @@
 package Lesson01;
 
 
-public class Wall implements Jump {
+public class Wall implements Jump, Barrier {
     int wallHeight = 3;
 
     public Wall() {
     }
 
-    public Wall(String nameGroup, int runPower) {
+    public Wall(String nameGroup, int jumpPower) {
         Wall wall = new Wall();
-        wall.jump(nameGroup, runPower);
+        wall.jump(nameGroup, jumpPower);
     }
 
     public int getWallHeight() {

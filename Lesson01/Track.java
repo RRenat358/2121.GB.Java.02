@@ -1,7 +1,7 @@
 package Lesson01;
 
 
-public class Track implements Running {
+public class Track implements Running, Barrier {
     private int trackLength = 1000;
 
     public Track() {

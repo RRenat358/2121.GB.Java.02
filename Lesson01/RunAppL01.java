@@ -10,6 +10,7 @@ public class RunAppL01/* implements Participant*/ {
         Track track = new Track();
         Wall wall = new Wall();
 
+        int participantsSum = 3;
         Human human = new Human();
         Cat cat = new Cat();
         Robot robot = new Robot();
@@ -42,7 +43,8 @@ public class RunAppL01/* implements Participant*/ {
         participants3[0][0] = new Participant(human.getName(), human.getHeightJump());
         participants3[1][] = new Participant(cat.nameCat, cat.distanceRun);
         participants3[2][] = new Participant(robot.nameRobot, robot.distanceRun);*/
-
+        //в один массив не получается, разные типы данных,
+        //можно было бы в ArreyList, но в условии задачи в массив...
         String[] participantsName = new String[3];
         participantsName[0] = human.getNameGroup();
         participantsName[1] = cat.getNameGroup();
@@ -57,7 +59,7 @@ public class RunAppL01/* implements Participant*/ {
         participantsJumpPower[0] = human.getJumpPower();
         participantsJumpPower[1] = cat.getJumpPower();
         participantsJumpPower[2] = robot.getJumpPower();
-
+/*
         System.out.println("––––––––––––––––––––––––––––––");
         Track[] trackRun = new Track[3];
         trackRun[0] = new Track(participantsName[0], participantsRunPower[0]);
@@ -69,19 +71,28 @@ public class RunAppL01/* implements Participant*/ {
         wallJump[0] = new Wall(participantsName[0], participantsJumpPower[0]);
         wallJump[1] = new Wall(participantsName[1], participantsJumpPower[1]);
         wallJump[2] = new Wall(participantsName[2], participantsJumpPower[2]);
+*/
+        /*
+        //По условию задачи в один массив, но...
+        //How to use it?
+        Barrier[] barrier = new Barrier[2];
+        barrier[0] = new Track(participantsName[0], participantsRunPower[0]);
+        barrier[1] = new Wall(participantsName[0], participantsJumpPower[0]);
 
+         */
+
+
+
+        //======================================================================
+        for (int i = 0; i < 3; i++) {
+            System.out.println("––––––––––––––––––––––––––––––");
+            new Track(participantsName[i], participantsRunPower[i]);
+            new Wall(participantsName[i], participantsJumpPower[i]);
+        }
         System.out.println("––––––––––––––––––––––––––––––");
 
 
-
-
-
-
-
     }
-
-
-
 
 
     //======================================================================
