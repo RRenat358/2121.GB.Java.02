@@ -2,26 +2,28 @@ package Lesson01;
 
 
 public class Wall implements Jump {
-    static int wallHeight = 3;
+    int wallHeight = 3;
 
     public Wall() {
     }
 
-    public Wall(int wallHeight) {
+    public Wall(String nameGroup, int runPower) {
+        Wall wall = new Wall();
+        wall.jump(nameGroup, runPower);
     }
 
-    public static int getWallHeight() {
+    public int getWallHeight() {
         return wallHeight;
     }
 
-    public static void setWallHeight(int wallHeight) {
-        Wall.wallHeight = wallHeight;
+    public void setWallHeight(int wallHeight) {
+        this.wallHeight = wallHeight;
     }
 
     //======================================================================
     @Override
     public void jump(String nameGroup, int jumpPower) {
-        System.out.println(nameGroup + " пробежал: " + jumpPower + " из " + this.wallHeight);
+        System.out.println(nameGroup + " прыгнул : " + jumpPower + " из " + getWallHeight());
     }
 
 }

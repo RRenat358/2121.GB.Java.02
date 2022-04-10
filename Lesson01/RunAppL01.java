@@ -1,13 +1,15 @@
 package Lesson01;
 
 
+import java.lang.reflect.Method;
+
 public class RunAppL01/* implements Participant*/ {
     public static void main(String[] args) {
 
         //––––––––––––––––––––––––––––––
         Track track = new Track();
         Wall wall = new Wall();
-//participant
+        //participant
         Human human = new Human();
         Cat cat = new Cat();
         Robot robot = new Robot();
@@ -24,7 +26,6 @@ public class RunAppL01/* implements Participant*/ {
         track.running(robot.nameRobot, robot.distanceRun);
         wall.jump(robot.nameRobot, robot.heightJump);
 */
-        System.out.println("––––––––––––––––––––––––––––––");
 
         //======================================================================
 /*        Participant[] participants1 = new Participant[3];
@@ -58,13 +59,23 @@ public class RunAppL01/* implements Participant*/ {
         participantsJumpPower[2] = robot.getJumpPower();
 
         System.out.println("––––––––––––––––––––––––––––––");
-        Track[] trackArr = new Track[3];
-        trackArr[0] = new Track(participantsName[0], participantsRunPower[0]);
-        trackArr[1] = new Track(participantsName[1], participantsRunPower[1]);
-        trackArr[2] = new Track(participantsName[2], participantsRunPower[2]);
-
+        Track[] trackRun = new Track[3];
+        trackRun[0] = new Track(participantsName[0], participantsRunPower[0]);
+        trackRun[1] = new Track(participantsName[1], participantsRunPower[1]);
+        trackRun[2] = new Track(participantsName[2], participantsRunPower[2]);
 
         System.out.println("––––––––––––––––––––––––––––––");
+        Wall[] wallJump = new Wall[3];
+        wallJump[0] = new Wall(participantsName[0], participantsJumpPower[0]);
+        wallJump[1] = new Wall(participantsName[1], participantsJumpPower[1]);
+        wallJump[2] = new Wall(participantsName[2], participantsJumpPower[2]);
+
+        System.out.println("––––––––––––––––––––––––––––––");
+
+
+
+
+
 
 
     }
