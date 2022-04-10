@@ -1,7 +1,7 @@
 package Lesson01;
 
 
-public class RunAppL01/* implements Participant*/{
+public class RunAppL01/* implements Participant*/ {
     public static void main(String[] args) {
 
         //––––––––––––––––––––––––––––––
@@ -64,20 +64,18 @@ public class RunAppL01/* implements Participant*/{
         trackArr[2] = new Track(participantsName[2], participantsRunPower[2]);
 
 
-
         System.out.println("––––––––––––––––––––––––––––––");
 
 
-
-
-
-
     }
+
+
+
+
 
     //======================================================================
 //    public static Track running(String name, int distanceRun) {
 //        return new Track(name, distanceRun);
 //    }
-
 
 }

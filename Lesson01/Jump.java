@@ -2,5 +2,5 @@ package Lesson01;
 
 public interface Jump {
 
-    void jump(String name, int heightJump);
+    void jump(String nameGroup, int jumpPower);
 }
