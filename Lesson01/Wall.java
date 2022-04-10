@@ -2,7 +2,7 @@ package Lesson01;
 
 
 public class Wall implements Jump, Barrier {
-    int wallHeight = 3;
+    private int wallHeight = 3;
 
     public Wall() {
     }

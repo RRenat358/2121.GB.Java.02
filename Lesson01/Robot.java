@@ -1,9 +1,9 @@
 package Lesson01;
 
 public class Robot {
-    String nameGroup = "Робот";
-    int runPower = 10;
-    int jumpPower = 0;
+    private String nameGroup = "Робот";
+    private int runPower = 10;
+    private int jumpPower = 0;
 
     public Robot() {
     }

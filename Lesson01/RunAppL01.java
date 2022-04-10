@@ -7,8 +7,8 @@ public class RunAppL01/* implements Participant*/ {
     public static void main(String[] args) {
 
         //––––––––––––––––––––––––––––––
-        Track track = new Track();
-        Wall wall = new Wall();
+//        Track track = new Track();
+//        Wall wall = new Wall();
 
         int participantsSum = 3;
         Human human = new Human();
@@ -45,17 +45,17 @@ public class RunAppL01/* implements Participant*/ {
         participants3[2][] = new Participant(robot.nameRobot, robot.distanceRun);*/
         //в один массив не получается, разные типы данных,
         //можно было бы в ArreyList, но в условии задачи в массив...
-        String[] participantsName = new String[3];
+        String[] participantsName = new String[participantsSum];
         participantsName[0] = human.getNameGroup();
         participantsName[1] = cat.getNameGroup();
         participantsName[2] = robot.getNameGroup();
 
-        Integer[] participantsRunPower = new Integer[3];
+        Integer[] participantsRunPower = new Integer[participantsSum];
         participantsRunPower[0] = human.getRunPower();
         participantsRunPower[1] = cat.getRunPower();
         participantsRunPower[2] = robot.getRunPower();
 
-        Integer[] participantsJumpPower = new Integer[3];
+        Integer[] participantsJumpPower = new Integer[participantsSum];
         participantsJumpPower[0] = human.getJumpPower();
         participantsJumpPower[1] = cat.getJumpPower();
         participantsJumpPower[2] = robot.getJumpPower();
@@ -84,7 +84,7 @@ public class RunAppL01/* implements Participant*/ {
 
 
         //======================================================================
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < participantsSum; i++) {
             System.out.println("––––––––––––––––––––––––––––––");
             new Track(participantsName[i], participantsRunPower[i]);
             new Wall(participantsName[i], participantsJumpPower[i]);

@@ -1,9 +1,9 @@
 package Lesson01;
 
 public class Human {
-    String nameGroup = "Человек";
-    int runPower = 3000;
-    int jumpPower = 2;
+    private String nameGroup = "Человек";
+    private int runPower = 3000;
+    private int jumpPower = 2;
 
     public Human() {
     }

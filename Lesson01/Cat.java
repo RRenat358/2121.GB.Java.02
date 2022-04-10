@@ -1,9 +1,9 @@
 package Lesson01;
 
 public class Cat {
-    String nameGroup = "Кот";
-    int runPower = 200;
-    int jumpPower = 3;
+    private String nameGroup = "Кот";
+    private int runPower = 200;
+    private int jumpPower = 3;
 
     public Cat() {
     }

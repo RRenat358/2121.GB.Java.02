@@ -1,13 +1,15 @@
 package Lesson01;
 
 
-public class Track implements Running, Barrier {
+public class Track implements Running/*, Barrier*/ {
     private int trackLength = 1000;
 
     public Track() {
     }
 
     public Track(String nameGroup, int runPower) {
+        //без этого↓ не получалось получить доступ к running(a,b)...
+        //потому что running(a,b) переопределён?, имплиментирован?
         Track track = new Track();
         track.running(nameGroup, runPower);
     }
