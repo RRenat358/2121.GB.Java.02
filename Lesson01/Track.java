@@ -1,7 +1,5 @@
 package Lesson01;
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.Nullable;
 
 public class Track implements Running {
     private int trackLength = 1000;
@@ -9,25 +7,9 @@ public class Track implements Running {
     public Track() {
     }
 
-    public Track(String name, int distanceRun) {
+    public Track(String nameGroup, int runPower) {
         Track track = new Track();
-        track.running(name, distanceRun);
-    }
-
-    public Track(RunAppL01.Participant participant5) {
-        RunAppL01.Participant[] participant = new RunAppL01.Participant[0];
-        String name = String.valueOf(participant[0]);
-        int distanceRun = String.valueOf(participant[0]);
-        ;
-    }
-
-    public Track(Participant participant) {
-        running(participant);
-    }
-
-    @Contract(pure = true)
-    private @Nullable Object running(Participant participant) {
-        return null;
+        track.running(nameGroup, runPower);
     }
 
     public int getTrackLength() {
@@ -39,13 +21,10 @@ public class Track implements Running {
     }
 
     //======================================================================
-    public void running(String name, int distanceRun) {
-        System.out.println(name + " пробежал: " + this.trackLength + distanceRun);
+    @Override
+    public void running(String nameGroup, int runPower) {
+        System.out.println(nameGroup + " пробежал: " + runPower + " из " + this.trackLength);
     }
-
-
-
-
 
 
 //======================================================================
@@ -57,7 +36,7 @@ public class Track implements Running {
 //======================================================================
 /*  todo. Вопрос: получается рекурсия в реализации интерфейса?
       interface Running {Track running(String name, int distanceRun);}
-      + thise.метод ↓
+      + этот метод в этом классе↓
     @Override
     public Track running(String name, int distanceRun) {
         System.out.println(name + " пробежал: " + this.trackLength + distanceRun);

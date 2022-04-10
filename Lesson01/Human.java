@@ -1,44 +1,40 @@
 package Lesson01;
 
 public class Human {
-    String name = "Человек";
-    int distanceRun = 3000;
-    int heightJump = 2;
+    String nameGroup = "Человек";
+    int runPower = 3000;
+    int jumpPower = 2;
 
     public Human() {
     }
 
-    public Human(String name, int distanceRun, int heightJump) {
-        this.name = name;
-        this.distanceRun = distanceRun;
-        this.heightJump = heightJump;
+    public Human(String nameGroup, int runPower, int jumpPower) {
+        this.nameGroup = nameGroup;
+        this.runPower = runPower;
+        this.jumpPower = jumpPower;
     }
 
-    public Human(int distanceRun) {
-        this.distanceRun = distanceRun;
+    public String getNameGroup() {
+        return nameGroup;
     }
 
-    public String getName() {
-        return name;
+    public void setNameGroup(String nameGroup) {
+        this.nameGroup = nameGroup;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getRunPower() {
+        return runPower;
     }
 
-    public int getDistanceRun() {
-        return distanceRun;
+    public void setRunPower(int runPower) {
+        this.runPower = runPower;
     }
 
-    public void setDistanceRun(int distanceRun) {
-        this.distanceRun = distanceRun;
+    public int getJumpPower() {
+        return jumpPower;
     }
 
-    public int getHeightJump() {
-        return heightJump;
-    }
-
-    public void setHeightJump(int heightJump) {
-        this.heightJump = heightJump;
+    public void setJumpPower(int jumpPower) {
+        this.jumpPower = jumpPower;
     }
 }
