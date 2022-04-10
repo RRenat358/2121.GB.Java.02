@@ -3,7 +3,6 @@ package Lesson01;
 
 public class RunAppL01 {
     public static void main(String[] args) {
-        Track track = new Track();
 
         int participantsSum = 3;
         Human human = new Human();

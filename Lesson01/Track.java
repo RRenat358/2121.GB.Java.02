@@ -2,8 +2,8 @@ package Lesson01;
 
 
 public class Track implements Running {
-    //Ввод длины Трека
-    private int trackLength = 100;
+    //Ввод длины Трека, например /10 /100 /1000
+    private int trackLength = 10;
     private static boolean canRunning = false;
 
     public Track() {
