@@ -9,7 +9,7 @@ public class RunAppL01/* implements Participant*/ {
         //––––––––––––––––––––––––––––––
         Track track = new Track();
         Wall wall = new Wall();
-        //participant
+
         Human human = new Human();
         Cat cat = new Cat();
         Robot robot = new Robot();
