@@ -1,5 +1,8 @@
 package Lesson01;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Nullable;
+
 public class Track implements Running {
     private int trackLength = 1000;
 
@@ -9,6 +12,22 @@ public class Track implements Running {
     public Track(String name, int distanceRun) {
         Track track = new Track();
         track.running(name, distanceRun);
+    }
+
+    public Track(RunAppL01.Participant participant5) {
+        RunAppL01.Participant[] participant = new RunAppL01.Participant[0];
+        String name = String.valueOf(participant[0]);
+        int distanceRun = String.valueOf(participant[0]);
+        ;
+    }
+
+    public Track(Participant participant) {
+        running(participant);
+    }
+
+    @Contract(pure = true)
+    private @Nullable Object running(Participant participant) {
+        return null;
     }
 
     public int getTrackLength() {
