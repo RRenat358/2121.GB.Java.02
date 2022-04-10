@@ -40,10 +40,14 @@ public class RunAppL01 {
             System.out.println("––––––––––––––––––––––––––––––");
             new Track(participantsName[i], participantsRunPower[i]);
 
-            if (track.isCanRuning()) {
+            if (Track.isCanRunning()) {
                 new Wall(participantsName[i], participantsJumpPower[i]);
             } else {
                 System.out.println(" ⛔ " + participantsName[i] + " не допущен, т.к. не прошёл Трек.");
+            }
+
+            if (Track.isCanRunning() && Wall.isCanJumpin()){
+                System.out.println(" ★ " + participantsName[i] + " прошёл все испытания! ★");
             }
         }
         System.out.println("––––––––––––––––––––––––––––––");

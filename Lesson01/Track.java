@@ -1,9 +1,10 @@
 package Lesson01;
 
 
-public class Track implements Running/*, Barrier*/ {
+public class Track implements Running {
+    //Ввод длины Трека
     private int trackLength = 100;
-    private static boolean canRuning = false;
+    private static boolean canRunning = false;
 
     public Track() {
     }
@@ -23,12 +24,12 @@ public class Track implements Running/*, Barrier*/ {
         this.trackLength = trackLength;
     }
 
-    public boolean isCanRuning() {
-        return canRuning;
+    public static boolean isCanRunning() {
+        return canRunning;
     }
 
-    public void setCanRunning(boolean canRuning) {
-        this.canRuning = canRuning;
+    public static void setCanRunning(boolean canRuning) {
+        Track.canRunning = canRuning;
     }
 
     //======================================================================
@@ -36,17 +37,17 @@ public class Track implements Running/*, Barrier*/ {
     public void running(String nameGroup, int runPower) {
         if (runPower <= 0) {
             System.out.println(" ⭕ " + nameGroup + " не пробежал: не умеет бегать.");
-            this.canRuning = false;
+            this.canRunning = false;
             return;
         }
         if (runPower < this.trackLength) {
             System.out.println(" ❌ " + nameGroup + " не пробежал. Не хватило " + (this.trackLength - runPower) + " сил до " + this.trackLength);
-            this.canRuning = false;
+            this.canRunning = false;
             return;
         }
         //runPower >= this.trackLength
         System.out.println(" ✅ " + nameGroup + " пробежал весь Трек: " + this.trackLength);
-        this.canRuning = true;
+        this.canRunning = true;
     }
 }
 

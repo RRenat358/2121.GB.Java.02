@@ -1,7 +1,8 @@
 package Lesson01;
 
 
-public class Wall implements Jump, Barrier {
+public class Wall implements Jump {
+    //Ввод высоты Стены
     private int wallHeight = 3;
     private static boolean canJumpin = false;
 
@@ -19,6 +20,14 @@ public class Wall implements Jump, Barrier {
 
     public void setWallHeight(int wallHeight) {
         this.wallHeight = wallHeight;
+    }
+
+    public static boolean isCanJumpin() {
+        return canJumpin;
+    }
+
+    public static void setCanJumpin(boolean canJumpin) {
+        Wall.canJumpin = canJumpin;
     }
 
     //======================================================================
