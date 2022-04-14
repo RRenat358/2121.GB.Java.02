@@ -1,10 +1,15 @@
 package Lesson02;
 
+import java.util.Arrays;
+
 public class Lesson02 {
+
+    public static final int ARRAY_SIZE = 4;
     public static void main(String[] args) throws MyArraySizeException {
-        String[][] arrayString = new String[4][4];
-        for (int i = 0; i <= 4; i++) {
-            for (int j = 0; j <= 4; j++) {
+        System.out.println("––––––––––––––––––––––––––––––");
+        String[][] arrayString = new String[ARRAY_SIZE][ARRAY_SIZE];
+        for (int i = 0; i < ARRAY_SIZE; i++) {
+            for (int j = 0; j < ARRAY_SIZE; j++) {
                 arrayString[i][j] = "1";
             }
         }
@@ -12,11 +17,13 @@ public class Lesson02 {
         arrayString[2][2] = "2000";
         arrayString[3][3] = "300";
 
+        System.out.println(Arrays.deepToString(arrayString));
+//        System.out.println(arrayString.toString());
 
         System.out.println("––––––––––––––––––––––––––––––");
 //        arrConvertToInt(arrayString);
         try {
-            System.out.println(arrConvertToInt(arrayString));
+//            System.out.println(arrConvertToInt(arrayString));
 //        } catch (MyArraySizeException e) {
 //        } catch (ArrayIndexOutOfBoundsException e) {
 //            System.out.println("2222222222222");
@@ -34,11 +41,11 @@ public class Lesson02 {
 
 
     }
-
+/*
     public static int arrConvertToInt(String[][] arr) {
         int arrElement = 0;
         int arrSum = 0;
-        for (int i = 0; i <= arr.length; i++) {
+        for (int arrRowIndex = 0; arrRowIndex < arr.length; arrRowIndex++) {
             if (i ) {
             }
             try {
@@ -50,14 +57,15 @@ public class Lesson02 {
 
 
 //                throw new MyArraySizeException("11111");
-                throw new MyArraySizeException();
+//                throw new MyArraySizeException();
             arrSum += arrElement;
 
 //            System.out.println(arrSum);
         }
         return arrSum;
+
     }
 
-
+*/
 
 }
