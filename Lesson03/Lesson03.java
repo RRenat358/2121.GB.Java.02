@@ -24,25 +24,34 @@ public class Lesson03 {
     public static void main(String[] args) {
         //======================================================================
         String[] array01 = new String[]{
-                "a-1", "a-2", "a-3", "a-4", "a-5", "a-6", "a-7", "a-9", "a-9", "a-10"
+                "a-1", "a-2", "a-3", "a-4", "a-5", "a-6", "a-7", "a-8", "a-9", "a-10", "a-10", "a-10", "a-10"
         };
         System.out.println("––––––––––––––––––––––––––––––");
+        System.out.println(array01.length + " = элементов");
         System.out.println(Arrays.toString(array01));
         System.out.println("––––––––––––––––––––––––––––––");
-        Set<String> setArray01 = new LinkedHashSet<>(); //уникальные
-        setArray01.addAll(Arrays.asList(array01));
+        Set<String> array01LinkedHashSet = new LinkedHashSet<>(); //уникальные
+        array01LinkedHashSet.addAll(Arrays.asList(array01));
 //        for (String arr : array01) {
 //            setArray01.add(arr);
 //        }
-        //уникальные
-        System.out.println(setArray01);
+        System.out.println(array01LinkedHashSet.size() + " = уникальные");
+        System.out.println(array01LinkedHashSet);
 
         System.out.println("––––––––––––––––––––––––––––––");
         //наличие в массиве
-        System.out.println(setArray01.contains("a-0"));
+        System.out.println(array01LinkedHashSet.contains("a-0"));
 
         System.out.println("––––––––––––––––––––––––––––––");
-
+        Set<String> array01LinkedHashSet02 = new LinkedHashSet<>();
+        int count = 0;
+        for(int i = 0; i<array01.length; i++) {
+            if(array01LinkedHashSet02.add(array01[i])) {
+                count++;
+                System.out.println("Index :: "+i+" Element :: "+array01[i]);
+            }
+        }
+        System.out.println("count = " + count);
 
 
         //======================================================================
