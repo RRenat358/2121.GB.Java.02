@@ -47,6 +47,7 @@ public class Lesson03 {
 
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
+        /*
         Set<String> array01LinkedHashSet02 = new LinkedHashSet<>();
         int count = 0;
         for (int i = 0; i < array01.length; i++) {
@@ -57,10 +58,32 @@ public class Lesson03 {
         }
         System.out.println("count = " + count);
 
-
+*/
         //======================================================================
         int countIsElement = 0;
         Map<String, Integer> countIsElementSetMape = new TreeMap<>();
+        Set<String> array01LinkedHashSet03 = new LinkedHashSet<>();
+
+        for (int i = 0; i < array01.length; i++) {
+            if (!countIsElementSetMape.containsKey(array01[i])){
+                countIsElementSetMape.put(array01[i],1);
+            } else {
+                countIsElementSetMape.put(array01[i],countIsElementSetMape.containsValue());
+            }
+//            System.out.println("i = " + countIsElementSetMape.get(array01[i]));
+        }
+        System.out.println(countIsElementSetMape);
+
+/*
+        for (int i = 0; i < array01.length; i++) {
+            countIsElementSetMape.put(array01[i],i);
+            System.out.println(".get(array01[i]) = " + countIsElementSetMape.get(array01[i]));
+        }
+//        countIsElementSetMape.forEach((s, integer) -> "fghfj",array01LinkedHashSet);
+        System.out.println(countIsElementSetMape);
+*/
+
+
 
 
     }
