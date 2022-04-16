@@ -16,6 +16,8 @@ public class Phonebook {
         this.name = name;
     }
 
+    //todo add get/set() and add all methods
+
 
     //======================================================================
     Map<String, String> phonebookMap = new TreeMap<>();
@@ -27,31 +29,30 @@ public class Phonebook {
     }
 
     String getIsPhone(String phone) {
-        Map<String, String> getPhonebookMap = new LinkedHashMap<>();
+        Map<String, String> getIsPhoneMap = new LinkedHashMap<>();
         for (Map.Entry<String, String> stringEntry : phonebookMap.entrySet()) {
             if (stringEntry.getKey() == phone) {
-                getPhonebookMap.put(stringEntry.getKey(), stringEntry.getValue());
+                getIsPhoneMap.put(stringEntry.getKey(), stringEntry.getValue());
             }
         }
-        getPhonebookMap.forEach((phone2, name2) ->
+        getIsPhoneMap.forEach((phone2, name2) ->
                 System.out.println(phone2 + " == " + name2)
         );
         return null;
     }
+
     String getIsName(String name) {
-        Map<String, String> getPhonebookMap = new LinkedHashMap<>();
+        Map<String, String> getIsNameMap = new LinkedHashMap<>();
         for (Map.Entry<String, String> stringEntry : phonebookMap.entrySet()) {
             if (stringEntry.getValue() == name) {
-                getPhonebookMap.put(stringEntry.getKey(), stringEntry.getValue());
+                getIsNameMap.put(stringEntry.getKey(), stringEntry.getValue());
             }
         }
-        getPhonebookMap.forEach((phone2, name2) ->
+        getIsNameMap.forEach((phone2, name2) ->
                 System.out.println(phone2 + " == " + name2)
         );
         return null;
     }
-
-
 
     void printPhonebook() {
         phonebookMap.forEach((phone, name) ->

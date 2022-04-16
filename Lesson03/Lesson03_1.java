@@ -30,22 +30,20 @@ public class Lesson03_1 {
         System.out.println("––––––––––––––––––––––––––––––");
         Set<String> arrayFruitLinkedHashSet = new LinkedHashSet<>(); //уникальные
         arrayFruitLinkedHashSet.addAll(Arrays.asList(arrayFruit));
-//        for (String arr : array01) {
-//            setArray01.add(arr);
-//        }
+
         System.out.println(arrayFruitLinkedHashSet.size() + " = уникальных");
         System.out.println(arrayFruitLinkedHashSet);
 
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
-        //наличие в массиве
+        //Наличие в массиве
         String checkIsElement = "Укроп";
         System.out.println("Элемент [ " + checkIsElement + " ] в массиве? == " +
                 arrayFruitLinkedHashSet.contains(checkIsElement));
 
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
-        // Количество каждого элемента в массиве
+        //Количество каждого элемента в массиве
         Map<String, Integer> mapCountIsElement = new TreeMap<>();
         for (int i = 0; i < arrayFruit.length; i++) {
             if (!mapCountIsElement.containsKey(arrayFruit[i])) {
@@ -57,7 +55,8 @@ public class Lesson03_1 {
                 );
             }
         }
-//        treeMapCountIsElement.forEach((key, value) -> System.out.println(key + " " + value));
+        //for example
+        //treeMapCountIsElement.forEach((key, value) -> System.out.println(key + " " + value));
         for (Map.Entry<String, Integer> entry : mapCountIsElement.entrySet()) {
             System.out.println(entry.getKey() + "  =  " + entry.getValue());
         }

@@ -1,6 +1,5 @@
 package Lesson03;
 
-import java.util.*;
 /*
 2 Написать простой класс Телефонный Справочник, который хранит в себе список фамилий и
         телефонных номеров. В этот телефонный справочник с помощью метода add() можно
@@ -15,7 +14,6 @@ public class Lesson03_2 {
 
     public static void main(String[] args) {
         //======================================================================
-
         String phone1 = "5826847";
         String name1 = "Олег";
 
@@ -28,26 +26,34 @@ public class Lesson03_2 {
         String phone4 = "6945958";
         String name4 = "Артур";
 
-        Phonebook addPerson = new Phonebook();
-        addPerson.addPhonebook(phone1, name1);
-        addPerson.addPhonebook(phone2, name2);
-        addPerson.addPhonebook(phone3, name3);
-        addPerson.addPhonebook(phone4, name4);
+        Phonebook phonebook = new Phonebook();
+        phonebook.addPhonebook(phone1, name1);
+        phonebook.addPhonebook(phone2, name2);
+        phonebook.addPhonebook(phone3, name3);
+        phonebook.addPhonebook(phone4, name4);
 
         System.out.println("––––––––––––––––––––––––––––––");
         System.out.println("Вся телефонная книга");
-        addPerson.printPhonebook();
+        phonebook.printPhonebook();
 
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
         String IsPhone = "6945958";
         System.out.println("По номеру [ " + IsPhone + " ] нашлось:");
-        addPerson.getIsPhone(IsPhone);
+        phonebook.getIsPhone(IsPhone);
+
+        //todo ?? IsPhone = "000000000000"
+        //todo ?? IsPhone = ""
+        //todo ?? IsPhone = null
 
         System.out.println("––––––––––––––––––––––––––––––");
         String IsName = "Олег";
         System.out.println("По имени [ " + IsName + " ] нашлось:");
-        addPerson.getIsName(IsName);
+        phonebook.getIsName(IsName);
+
+        //todo ?? IsName = "slvinsrajygsb"
+        //todo ?? IsName = ""
+        //todo ?? IsName = null
 
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
