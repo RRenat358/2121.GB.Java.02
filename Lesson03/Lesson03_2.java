@@ -15,23 +15,39 @@ public class Lesson03_2 {
 
     public static void main(String[] args) {
         //======================================================================
-        System.out.println("––––––––––––––––––––––––––––––");
-        String phone1 = "2826847";
+
+        String phone1 = "5826847";
         String name1 = "Олег";
 
         String phone2 = "4135422";
         String name2 = "Иван";
 
-        String phone3 = "6945958";
-        String name3 = "Артур";
+        String phone3 = "8461535";
+        String name3 = "Олег";
+
+        String phone4 = "6945958";
+        String name4 = "Артур";
 
         Phonebook addPerson = new Phonebook();
-        addPerson.add(phone1, name1);
-        addPerson.add(phone2, name2);
-        addPerson.add(phone3, name3);
+        addPerson.addPhonebook(phone1, name1);
+        addPerson.addPhonebook(phone2, name2);
+        addPerson.addPhonebook(phone3, name3);
+        addPerson.addPhonebook(phone4, name4);
 
+        System.out.println("––––––––––––––––––––––––––––––");
+        System.out.println("Вся телефонная книга");
         addPerson.printPhonebook();
 
+        //======================================================================
+        System.out.println("––––––––––––––––––––––––––––––");
+        String IsPhone = "6945958";
+        System.out.println("По номеру [ " + IsPhone + " ] нашлось:");
+        addPerson.getIsPhone(IsPhone);
+
+        System.out.println("––––––––––––––––––––––––––––––");
+        String IsName = "Олег";
+        System.out.println("По имени [ " + IsName + " ] нашлось:");
+        addPerson.getIsName(IsName);
 
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
