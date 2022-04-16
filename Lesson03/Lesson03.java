@@ -22,8 +22,29 @@ public class Lesson03 {
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
         String[] array01 = new String[]{
-                "a-1", "a-2", "a-3", "a-3", "a-3", "a-4", "a-5",
-                "a-6", "a-7", "a-7", "a-8", "a-9", "a-10", "a-10", "a-10", "a-10"
+/*
+                "a-1",
+                "a-2",
+                "a-3", "a-3", "a-3",
+                "a-4",
+                "a-5",
+                "a-6",
+                "a-7", "a-7",
+                "a-8",
+                "a-9",
+                "a-10", "a-10", "a-10", "a-10"
+        };
+*/
+                "Арбуз",
+                "Дыня",
+                "Яблоко", "Яблоко", "Яблоко",
+                "Груша",
+                "Вишня",
+                "Киви",
+                "Малина", "Малина",
+                "Персик",
+                "Абрикос",
+                "Мандарин", "Мандарин", "Мандарин", "Мандарин"
         };
         System.out.println(array01.length + " = элементов всего");
         System.out.println(Arrays.toString(array01));
@@ -41,52 +62,31 @@ public class Lesson03 {
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
         //наличие в массиве
-        String checkIsElement = "a-0";
+        String checkIsElement = "Укроп";
         System.out.println("Элемент [ " + checkIsElement + " ] в массиве? == " +
                 array01LinkedHashSet.contains(checkIsElement));
 
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
-        /*
-        Set<String> array01LinkedHashSet02 = new LinkedHashSet<>();
-        int count = 0;
+        // Количество каждого элемента в массиве
+        Map<String, Integer> treeMapCountIsElement = new TreeMap<>();
         for (int i = 0; i < array01.length; i++) {
-            if (array01LinkedHashSet02.add(array01[i])) {
-                count++;
-                System.out.println("Index :: " + i + " Element :: " + array01[i]);
-            }
-        }
-        System.out.println("count = " + count);
-
-*/
-        //======================================================================
-        int countIsElement = 0;
-        Map<String, Integer> countIsElementSetMape = new TreeMap<>();
-        Set<String> array01LinkedHashSet03 = new LinkedHashSet<>();
-
-        for (int i = 0; i < array01.length; i++) {
-            if (!countIsElementSetMape.containsKey(array01[i])){
-                countIsElementSetMape.put(array01[i],1);
+            if (!treeMapCountIsElement.containsKey(array01[i])){
+                treeMapCountIsElement.put(array01[i],1);
             } else {
-                countIsElementSetMape.put(array01[i],countIsElementSetMape.containsValue());
+                treeMapCountIsElement.replace(array01[i],
+                        treeMapCountIsElement.get(array01[i]),
+                        treeMapCountIsElement.get(array01[i])+1
+                );
             }
-//            System.out.println("i = " + countIsElementSetMape.get(array01[i]));
         }
-        System.out.println(countIsElementSetMape);
-
-/*
-        for (int i = 0; i < array01.length; i++) {
-            countIsElementSetMape.put(array01[i],i);
-            System.out.println(".get(array01[i]) = " + countIsElementSetMape.get(array01[i]));
+//        treeMapCountIsElement.forEach((key, value) -> System.out.println(key + " " + value));
+        for (Map.Entry<String, Integer> entry : treeMapCountIsElement.entrySet()) {
+            System.out.println(entry.getKey() + "  =  " + entry.getValue());
         }
-//        countIsElementSetMape.forEach((s, integer) -> "fghfj",array01LinkedHashSet);
-        System.out.println(countIsElementSetMape);
-*/
 
-
-
-
+        //======================================================================
+        System.out.println("––––––––––––––––––––––––––––––");
     }
-
 
 }
