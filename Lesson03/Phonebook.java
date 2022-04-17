@@ -36,7 +36,7 @@ public class Phonebook {
             }
         }
         getIsPhoneMap.forEach((phone2, name2) ->
-                System.out.println(phone2 + " == " + name2)
+                System.out.println(phone2 + " = " + name2)
         );
         return null;
     }
@@ -49,14 +49,15 @@ public class Phonebook {
             }
         }
         getIsNameMap.forEach((phone2, name2) ->
-                System.out.println(phone2 + " == " + name2)
+                System.out.println(phone2 + " = " + name2)
         );
         return null;
     }
 
+
     void printPhonebook() {
         phonebookMap.forEach((phone, name) ->
-                System.out.println(phone + " == " + name)
+                System.out.println(phone + " = " + name)
         );
     }
 

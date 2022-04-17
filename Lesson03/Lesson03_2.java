@@ -14,23 +14,28 @@ public class Lesson03_2 {
 
     public static void main(String[] args) {
         //======================================================================
-        String phone1 = "5826847";
+        String phone1 = "89565826847";
         String name1 = "Олег";
 
-        String phone2 = "4135422";
+        String phone2 = "89424135422";
         String name2 = "Иван";
 
-        String phone3 = "8461535";
+        String phone3 = "89358461535";
         String name3 = "Олег";
 
-        String phone4 = "6945958";
+        String phone4 = "89966945958";
         String name4 = "Артур";
+
+        String phone5 = "89321967146";
+        String name5 = "Игорь";
+
 
         Phonebook phonebook = new Phonebook();
         phonebook.addPhonebook(phone1, name1);
         phonebook.addPhonebook(phone2, name2);
         phonebook.addPhonebook(phone3, name3);
         phonebook.addPhonebook(phone4, name4);
+        phonebook.addPhonebook(phone5, name5);
 
         System.out.println("––––––––––––––––––––––––––––––");
         System.out.println("Вся телефонная книга");
@@ -38,7 +43,7 @@ public class Lesson03_2 {
 
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
-        String IsPhone = "6945958";
+        String IsPhone = "89966945958"; //пример
         System.out.println("По номеру [ " + IsPhone + " ] нашлось:");
         phonebook.getIsPhone(IsPhone);
 
@@ -47,7 +52,7 @@ public class Lesson03_2 {
         //todo ?? IsPhone = null
 
         System.out.println("––––––––––––––––––––––––––––––");
-        String IsName = "Олег";
+        String IsName = "Олег"; //пример
         System.out.println("По имени [ " + IsName + " ] нашлось:");
         phonebook.getIsName(IsName);
 

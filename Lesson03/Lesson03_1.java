@@ -55,8 +55,6 @@ public class Lesson03_1 {
                 );
             }
         }
-        //for example
-        //treeMapCountIsElement.forEach((key, value) -> System.out.println(key + " " + value));
         for (Map.Entry<String, Integer> entry : mapCountIsElement.entrySet()) {
             System.out.println(entry.getKey() + "  =  " + entry.getValue());
         }
