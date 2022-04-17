@@ -16,21 +16,17 @@ public class Lesson03_2 {
         //======================================================================
         String phone1 = "89565826847";
         String name1 = "Олег";
-
         String phone2 = "89424135422";
         String name2 = "Иван";
-
         String phone3 = "89358461535";
         String name3 = "Олег";
-
         String phone4 = "89966945958";
         String name4 = "Артур";
-
-        String phone5 = "89321967146";
+        String phone5 = "89966945958";
         String name5 = "Игорь";
 
-
         Phonebook phonebook = new Phonebook();
+
         phonebook.addPhonebook(phone1, name1);
         phonebook.addPhonebook(phone2, name2);
         phonebook.addPhonebook(phone3, name3);
@@ -44,24 +40,47 @@ public class Lesson03_2 {
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
         String IsPhone = "89966945958"; //пример
-        System.out.println("По номеру [ " + IsPhone + " ] нашлось:");
         phonebook.getIsPhone(IsPhone);
-
-        //todo ?? IsPhone = "000000000000"
-        //todo ?? IsPhone = ""
-        //todo ?? IsPhone = null
 
         System.out.println("––––––––––––––––––––––––––––––");
         String IsName = "Олег"; //пример
-        System.out.println("По имени [ " + IsName + " ] нашлось:");
         phonebook.getIsName(IsName);
 
-        //todo ?? IsName = "slvinsrajygsb"
-        //todo ?? IsName = ""
-        //todo ?? IsName = null
-
         //======================================================================
+        System.out.println("==============================");
+        //QA
+        System.out.println("01");
+        phonebook.addPhonebook("", "nameEmpty");
+        System.out.println("02");
+        phonebook.addPhonebook(null, "nameNULL");
+        System.out.println("03");
+        phonebook.addPhonebook("895658268470", "e12");//12цифр
+        System.out.println("04");
+        phonebook.addPhonebook("+79965658eee", "eee");
+        System.out.println("05");
+        phonebook.addPhonebook("++7996565855", "++e");
+        System.out.println("––––––––––");
+        phonebook.printPhonebook();//проверяем
+        System.out.println("––––––––––");
+        System.out.println("01");
+        phonebook.getIsPhone("Артур");
+        phonebook.getIsPhone(null);
+        phonebook.getIsPhone("");
+        phonebook.getIsPhone("+555");
+        System.out.println("02");
+        phonebook.getIsName("55555");
+        phonebook.getIsName(null);
+        phonebook.getIsName("");
         System.out.println("––––––––––––––––––––––––––––––");
+
+
+
+
+
+
+
+
+
     }
 
 }
