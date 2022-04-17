@@ -35,7 +35,7 @@ public class Lesson03_2 {
 
         System.out.println("––––––––––––––––––––––––––––––");
         System.out.println("Вся телефонная книга");
-        phonebook.printPhonebook();
+        phonebook.phonebookPrint();
 
         //======================================================================
         System.out.println("––––––––––––––––––––––––––––––");
@@ -60,7 +60,7 @@ public class Lesson03_2 {
         System.out.println("05");
         phonebook.addPhonebook("++7996565855", "++e");
         System.out.println("––––––––––");
-        phonebook.printPhonebook();//проверяем
+        phonebook.phonebookPrint();//проверяем
         System.out.println("––––––––––");
         System.out.println("01");
         phonebook.getIsPhone("Артур");
