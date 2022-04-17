@@ -52,8 +52,11 @@ public class Phonebook {
             System.out.println("❌ Абонент не записан");
             return;
         }
+        phone = phone.trim();
+        name = name.trim();
         this.phonebookMap.put(phone, name);
     }
+
     //======================================================================
     void getIsPhone(String phone) {
         if (!isNumberIsPhone(phone)) {
@@ -76,32 +79,39 @@ public class Phonebook {
             return;
         }
         name = name.trim();
-        Map<String, String> getIsNameMap = new LinkedHashMap<>();
+        Map<String, String> nameMap = new LinkedHashMap<>();
         for (Map.Entry<String, String> stringEntry : this.phonebookMap.entrySet()) {
             if (stringEntry.getValue() == name) {
-                getIsNameMap.put(stringEntry.getKey(), stringEntry.getValue());
+                nameMap.put(stringEntry.getKey(), stringEntry.getValue());
             }
         }
         System.out.println("По имени [ " + name + " ] нашлось:");
-        getIsNameMap.forEach((phoneFE, namFE) ->
+        nameMap.forEach((phoneFE, namFE) ->
                 System.out.println(phoneFE + " = " + namFE)
         );
-        getIsNameMap.clear();
     }
+
     //======================================================================
     void phonebookPrint() {
+        System.out.println("Вся телефонная книга");
+        System.out.println("- - - - - - - - - - - - - - -");
         phonebookMap.forEach((phone, name) ->
                 System.out.println(phone + " = " + name)
         );
     }
+
     void phonePrint(String phone) {
         System.out.println("phone = [ " + phone + " ]");
     }
+
     void namePrint(String name) {
         System.out.println("name = [ " + name + " ]");
     }
+
     //======================================================================
-    //todo проверка может быть не полной, нужно тз и погуглить
+    //QA
+
+    //todo проверка может быть не полной, нужно тз и/или погуглить
     public boolean isNumberIsPhone(String phone) {
         if (phone == null || phone.isEmpty() || phone.trim().isEmpty()) {
             phonePrint(phone);
@@ -127,7 +137,8 @@ public class Phonebook {
         }
         return true;
     }
-    //todo проверка может быть не полной, нужно тз и погуглить
+
+    //todo проверка может быть не полной, нужно тз и/или погуглить
     public boolean isStringIsName(String name) {
         if (name == null || name.isEmpty() || name.trim().isEmpty()) {
             namePrint(name);
