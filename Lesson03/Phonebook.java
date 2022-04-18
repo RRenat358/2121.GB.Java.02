@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Phonebook {
-    String phone = "";
-    String name = "";
+    private String phone = "";
+    private String name = "";
     Map<String, String> phonebookMap = new TreeMap<>();
 
     public Phonebook(Map<String, String> phonebookMap) {
@@ -112,7 +112,7 @@ public class Phonebook {
     //QA
 
     //todo проверка может быть не полной, нужно тз и/или погуглить
-    public boolean isNumberIsPhone(String phone) {
+    private boolean isNumberIsPhone(String phone) {
         if (phone == null || phone.isEmpty() || phone.trim().isEmpty()) {
             phonePrint(phone);
             System.out.println("Не заполнен");
@@ -139,7 +139,7 @@ public class Phonebook {
     }
 
     //todo проверка может быть не полной, нужно тз и/или погуглить
-    public boolean isStringIsName(String name) {
+    private boolean isStringIsName(String name) {
         if (name == null || name.isEmpty() || name.trim().isEmpty()) {
             namePrint(name);
             System.out.println("Не заполнен");
