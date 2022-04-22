@@ -37,24 +37,23 @@ public class Lesson05 {
 
         System.out.println("math1 = " +
                 (System.currentTimeMillis() - timeStart) + "ms.");
-//        System.out.println(Arrays.toString(array1));
     }
 
     public static void math2() {
-        int SIZE = 10;
+        int SIZE = 10000000;
         int HALF_SIZE = SIZE / 2;
         float[] array2 = new float[SIZE];
-        float[] array2HalfLeft = new float[HALF_SIZE];
-        float[] array2HalfRight = new float[HALF_SIZE];
 
         Arrays.fill(array2, 1f);
 
         long timeStart = System.currentTimeMillis();
-        System.out.println(Arrays.toString(array2));
+//        System.out.println(Arrays.toString(array2));
+        float[] array2HalfLeft = new float[HALF_SIZE];
+        float[] array2HalfRight = new float[HALF_SIZE];
         System.arraycopy(array2, 0, array2HalfLeft, 0, HALF_SIZE);
         System.arraycopy(array2, HALF_SIZE, array2HalfRight, 0, HALF_SIZE);
-        System.out.println(Arrays.toString(array2HalfLeft));
-        System.out.println(Arrays.toString(array2HalfRight));
+//        System.out.println(Arrays.toString(array2HalfLeft));
+//        System.out.println(Arrays.toString(array2HalfRight));
 
         for (int i = 0; i < array2HalfLeft.length; i++) {
             array2HalfLeft[i] = (float) (array2HalfLeft[i] *
@@ -73,10 +72,8 @@ public class Lesson05 {
         System.arraycopy(array2HalfRight, 0, array2, HALF_SIZE, HALF_SIZE);
 
 //        System.out.println(Arrays.toString(array2));
-
-        System.out.println("math1 = " +
+        System.out.println("math2 = " +
                 (System.currentTimeMillis() - timeStart) + "ms.");
-//        System.out.println(Arrays.toString(array1));
     }
 
 
