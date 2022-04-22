@@ -3,11 +3,8 @@ package Lesson05;
 import java.util.Arrays;
 
 public class Lesson05 {
-    static final int SIZE = 10;
-    static final int HALF = SIZE / 2;
 
     public static void main(String[] args) {
-
         System.out.println("––––––––––––––––––––––––––––––");
         math1();
 
@@ -19,6 +16,7 @@ public class Lesson05 {
         }
 
         System.out.println("––––––––––––––––––––––––––––––");
+
     }
 
     public static void math1() {
@@ -29,13 +27,12 @@ public class Lesson05 {
         long timeStart = System.currentTimeMillis();
         for (int i = 0; i < array1.length; i++) {
             array1[i] = (float) (array1[i] *
-                    Math.sin(0.2f + i / 5) *
-                    Math.cos(0.2f + i / 5) *
-                    Math.cos(0.4f + i / 2));
+                    Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
         }
 
         System.out.println("math1 = " +
                 (System.currentTimeMillis() - timeStart) + "ms.");
+
     }
 
     public static void math2() throws InterruptedException {
@@ -56,18 +53,14 @@ public class Lesson05 {
             Thread thread1a = new Thread(() -> {
                 for (int i = 0; i < array2HalfLeft.length; i++) {
                     array2HalfLeft[i] = (float) (array2HalfLeft[i] *
-                            Math.sin(0.2f + i / 5) *
-                            Math.cos(0.2f + i / 5) *
-                            Math.cos(0.4f + i / 2));
+                            Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
                 }
             });
 
             Thread thread1b = new Thread(() -> {
                 for (int j = 0; j < array2HalfRight.length; j++) {
                     array2HalfRight[j] = (float) (array2HalfRight[j] *
-                            Math.sin(0.2f + j / 5) *
-                            Math.cos(0.2f + j / 5) *
-                            Math.cos(0.4f + j / 2));
+                            Math.sin(0.2f + j / 5) * Math.cos(0.2f + j / 5) * Math.cos(0.4f + j / 2));
                 }
             });
 
