@@ -6,12 +6,10 @@ public class Lesson05 {
     static final int SIZE = 10;
     static final int HALF = SIZE / 2;
 
-    float[] array1 = new float[SIZE];
-
     public static void main(String[] args) {
 
         System.out.println("––––––––––––––––––––––––––––––");
-//        math1();
+        math1();
 
         System.out.println("––––––––––––––––––––––––––––––");
         try {
@@ -23,13 +21,10 @@ public class Lesson05 {
         System.out.println("––––––––––––––––––––––––––––––");
     }
 
-
     public static void math1() {
         int SIZE = 10000000;
         float[] array1 = new float[SIZE];
-
         Arrays.fill(array1, 1f);
-//        System.out.println(Arrays.toString(array1));
 
         long timeStart = System.currentTimeMillis();
         for (int i = 0; i < array1.length; i++) {
@@ -45,21 +40,16 @@ public class Lesson05 {
 
     public static void math2() throws InterruptedException {
         int SIZE = 10000000;
-//        int SIZE = 100000000;
-//        int SIZE = 20;
         int HALF_SIZE = SIZE / 2;
         float[] array2 = new float[SIZE];
-
         Arrays.fill(array2, 1f);
 
         long timeStart = System.currentTimeMillis();
-//        System.out.println(Arrays.toString(array2));
+
         float[] array2HalfLeft = new float[HALF_SIZE];
         float[] array2HalfRight = new float[HALF_SIZE];
         System.arraycopy(array2, 0, array2HalfLeft, 0, HALF_SIZE);
         System.arraycopy(array2, HALF_SIZE, array2HalfRight, 0, HALF_SIZE);
-//        System.out.println(Arrays.toString(array2HalfLeft));
-//        System.out.println(Arrays.toString(array2HalfRight));
 
         Thread thread1 = new Thread(() -> {
 
@@ -80,19 +70,15 @@ public class Lesson05 {
                             Math.cos(0.4f + j / 2));
                 }
             });
+
             thread1a.start();
             thread1b.start();
-//            try {
-//                thread1a.join();
-//                thread1b.join();
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-
-            while (thread1a.isAlive() || thread1b.isAlive()) {
-
+            try {
+                thread1a.join();
+                thread1b.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
-
 
         });
 
@@ -102,23 +88,13 @@ public class Lesson05 {
         Thread thread2 = new Thread(() -> {
             System.arraycopy(array2HalfLeft, 0, array2, 0, HALF_SIZE);
             System.arraycopy(array2HalfRight, 0, array2, HALF_SIZE, HALF_SIZE);
-//            System.out.println(Arrays.toString(array2HalfLeft));
-//            System.out.println(Arrays.toString(array2HalfRight));
-//            System.out.println(Arrays.toString(array2));
-
 
             System.out.println("math2 = " +
                     (System.currentTimeMillis() - timeStart) + "ms.");
         });
 
-//        thread1.start();
-//        thread1.join();
-
         thread2.start();
         thread2.join();
 
-
     }
-
-
 }
