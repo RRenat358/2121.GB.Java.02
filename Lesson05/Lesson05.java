@@ -20,7 +20,7 @@ public class Lesson05 {
     }
 
     public static void math1() {
-        int SIZE = 10000000;
+        int SIZE = 10_000_000;
         float[] array1 = new float[SIZE];
         Arrays.fill(array1, 1f);
 
@@ -36,7 +36,9 @@ public class Lesson05 {
     }
 
     public static void math2() throws InterruptedException {
-        int SIZE = 10000000;
+//        int SIZE = 1_000_000_000;
+        int SIZE = 10_000_000;
+//        int SIZE = 10;
         int HALF_SIZE = SIZE / 2;
         float[] array2 = new float[SIZE];
         Arrays.fill(array2, 1f);
@@ -48,7 +50,7 @@ public class Lesson05 {
         System.arraycopy(array2, 0, array2HalfLeft, 0, HALF_SIZE);
         System.arraycopy(array2, HALF_SIZE, array2HalfRight, 0, HALF_SIZE);
 
-        Thread thread1 = new Thread(() -> {
+//        Thread thread1 = new Thread(() -> {
 
             Thread thread1a = new Thread(() -> {
                 for (int i = 0; i < array2HalfLeft.length; i++) {
@@ -73,14 +75,17 @@ public class Lesson05 {
                 throw new RuntimeException(e);
             }
 
-        });
-
-        thread1.start();
-        thread1.join();
+//        });
+//        thread1.start();
+//        thread1.join();
 
         Thread thread2 = new Thread(() -> {
             System.arraycopy(array2HalfLeft, 0, array2, 0, HALF_SIZE);
             System.arraycopy(array2HalfRight, 0, array2, HALF_SIZE, HALF_SIZE);
+
+//            System.out.println(Arrays.toString(array2HalfLeft));
+//            System.out.println(Arrays.toString(array2HalfRight));
+//            System.out.println(Arrays.toString(array2));
 
             System.out.println("math2 = " +
                     (System.currentTimeMillis() - timeStart) + "ms.");
