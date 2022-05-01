@@ -2,41 +2,56 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class ClientApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        connect();
+        Scanner input = new Scanner(System.in);
+
+        String message = input.nextLine();
+        messageSend(message);
 
     }
 
     public static final String SERVER_HOST = "localhost";
     public static final int SERVER_PORT = 8358;
 
-    private String host;
-    private int port;
-    private Socket socketClient;
-    private DataInputStream socketInput;
-    private DataOutputStream socketOutput;
+    private static String host;
+    private static int port;
+    private static Socket socketClient;
+    private static DataInputStream socketInput;
+    private static DataOutputStream socketOutput;
 
-    public Network() {
+    public ClientApp() {
         this(SERVER_HOST, SERVER_PORT);
     }
 
-    public Network(String host, int port) {
-        this.host = host;
-        this.port = port;
+    public ClientApp(String host, int port) {
+        ClientApp.host = host;
+        ClientApp.port = port;
     }
 
-    public boolean connect() {
+    public static void connect() {
+
         try {
-            socketClient = new Socket(host, port);
+            socketClient = new Socket(SERVER_HOST, SERVER_PORT);
             socketOutput = new DataOutputStream(socketClient.getOutputStream()); //"запись" - в исходящий поток
             socketInput = new DataInputStream(socketClient.getInputStream()); //"чтение" - из входящего потока
-            return true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
     }
+
+    public static void messageSend(String message) throws IOException {
+        try {
+            socketOutput.writeUTF(message);
+        } catch (IOException e) {
+            System.err.println("Сообщение не отправлено на сервер" + "\n----------");
+            throw e;
+        }
+    }
+
 
 }
