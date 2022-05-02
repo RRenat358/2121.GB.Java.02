@@ -14,15 +14,15 @@ public class ClientApp {
 
     public static void main(String[] args) throws IOException {
         connect();
-        Scanner input = new Scanner(System.in);
 
         Thread thread = new Thread(() -> {
+            Scanner input = new Scanner(System.in);
             while (true) {
                 String message = input.nextLine();
                 try {
-                    Forwarding.messageSend(outputStream, message);
+                    Forward.messageSend(outputStream, message);
                 } catch (IOException e) {
-                    System.err.println("thread/while" + "\n----------");
+                    System.err.println("IOException in thread/while" + "\n----------");
                 }
             }
         });
@@ -30,7 +30,7 @@ public class ClientApp {
         thread.start();
 
         while (true) {
-            String messageWait = Forwarding.messageWait(inputStream);
+            String messageWait = Forward.messageRead(inputStream);
             if (messageWait == null) {
                 break;
             }
@@ -39,7 +39,7 @@ public class ClientApp {
             }
             if (messageWait.equals("/end")) {
                 System.out.println("Command send: /end");
-                Forwarding.messageSend(outputStream, "PORT [ " + SERVER_PORT + " ] закрывает соединение");
+                Forward.messageSend(outputStream, "PORT [ " + SERVER_PORT + " ] закрывает соединение");
                 System.out.println("Сетевое соединение закрыто");
                 break;
             }

@@ -3,7 +3,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class ServerEcho {
 
@@ -14,15 +13,19 @@ public class ServerEcho {
 
     public static void main(String[] args) throws IOException {
         connect();
-        Scanner input = new Scanner(System.in);
+        Forward.forwardSend(outputStream);
+        Forward.forwardRead(inputStream);
 
+
+/*
         Thread thread = new Thread(() -> {
+            Scanner input = new Scanner(System.in);
             while (true) {
                 String message = input.nextLine();
                 try {
-                    Forwarding.messageSend(outputStream, message);
+                    Forward.messageSend(outputStream, message);
                 } catch (IOException e) {
-                    System.err.println("thread/while" + "\n----------");
+                    System.err.println("IOException in thread/while" + "\n----------");
                 }
             }
         });
@@ -30,7 +33,7 @@ public class ServerEcho {
         thread.start();
 
         while (true) {
-            String messageWait = Forwarding.messageWait(inputStream);
+            String messageWait = Forward.messageRead(inputStream);
             if (messageWait == null) {
                 break;
             }
@@ -39,13 +42,15 @@ public class ServerEcho {
             }
             if (messageWait.equals("/end")) {
                 System.out.println("Command send: /end");
-                Forwarding.messageSend(outputStream, "PORT [ " + CLIENT_PORT + " ] закрывает соединение");
+                Forward.messageSend(outputStream, "PORT [ " + CLIENT_PORT + " ] закрывает соединение");
                 System.out.println("Сетевое соединение закрыто");
                 break;
             }
             System.out.println("Client message: " + messageWait);
         }
+*/
     }
+
 
     public static void connect() {
         try {
