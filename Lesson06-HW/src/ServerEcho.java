@@ -20,7 +20,7 @@ public class ServerEcho {
             while (true) {
                 String message = input.nextLine();
                 try {
-                    messageSend(message);
+                    Forwarding.messageSend(outputStream, message);
                 } catch (IOException e) {
                     System.err.println("thread/while" + "\n----------");
                 }
@@ -30,17 +30,16 @@ public class ServerEcho {
         thread.start();
 
         while (true) {
-            String messageWait = messageWait();
+            String messageWait = Forwarding.messageWait(inputStream);
             if (messageWait == null) {
                 break;
             }
             if (messageWait.isEmpty()) {
                 continue;
             }
-
             if (messageWait.equals("/end")) {
                 System.out.println("Command send: /end");
-                messageSend("PORT [ " + CLIENT_PORT + " ] закрывает соединение");
+                Forwarding.messageSend(outputStream, "PORT [ " + CLIENT_PORT + " ] закрывает соединение");
                 System.out.println("Сетевое соединение закрыто");
                 break;
             }
@@ -61,24 +60,6 @@ public class ServerEcho {
         } catch (IOException e) {
             System.err.println("Ошибка подключения к порту: " + CLIENT_PORT + "\n");
             e.printStackTrace();
-        }
-    }
-
-    public static void messageSend(String message) throws IOException {
-        try {
-            outputStream.writeUTF(message);
-        } catch (IOException e) {
-            System.err.println("Сообщение не отправлено" + "\n----------");
-            throw e;
-        }
-    }
-
-    public static String messageWait() {
-        try {
-            return inputStream.readUTF();
-        } catch (IOException e) {
-            System.err.println("Сообщение не получено" + "\n----------");
-            return null;
         }
     }
 

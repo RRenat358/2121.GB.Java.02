@@ -20,7 +20,7 @@ public class ClientApp {
             while (true) {
                 String message = input.nextLine();
                 try {
-                    messageSend(message);
+                    Forwarding.messageSend(outputStream, message);
                 } catch (IOException e) {
                     System.err.println("thread/while" + "\n----------");
                 }
@@ -30,7 +30,7 @@ public class ClientApp {
         thread.start();
 
         while (true) {
-            String messageWait = messageWait();
+            String messageWait = Forwarding.messageWait(inputStream);
             if (messageWait == null) {
                 break;
             }
@@ -39,7 +39,7 @@ public class ClientApp {
             }
             if (messageWait.equals("/end")) {
                 System.out.println("Command send: /end");
-                messageSend("PORT [ " + SERVER_PORT + " ] закрывает соединение");
+                Forwarding.messageSend(outputStream, "PORT [ " + SERVER_PORT + " ] закрывает соединение");
                 System.out.println("Сетевое соединение закрыто");
                 break;
             }
@@ -54,24 +54,6 @@ public class ClientApp {
             inputStream = new DataInputStream(clientSocket.getInputStream()); //"чтение" - из входящего потока
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    public static void messageSend(String message) throws IOException {
-        try {
-            outputStream.writeUTF(message);
-        } catch (IOException e) {
-            System.err.println("Сообщение не отправлено" + "\n----------");
-            throw e;
-        }
-    }
-
-    public static String messageWait() {
-        try {
-            return inputStream.readUTF();
-        } catch (IOException e) {
-            System.err.println("Сообщение не получено" + "\n----------");
-            return null;
         }
     }
 
