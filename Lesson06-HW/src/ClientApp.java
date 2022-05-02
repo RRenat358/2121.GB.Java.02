@@ -5,24 +5,29 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class ClientApp {
-
-    public static void main(String[] args) throws IOException {
-        connect();
-        Scanner input = new Scanner(System.in);
-
-        String message = input.nextLine();
-        messageSend(message);
-
-    }
-
     public static final String SERVER_HOST = "localhost";
     public static final int SERVER_PORT = 8358;
 
     private static String host;
     private static int port;
-    private static Socket socketClient;
-    private static DataInputStream socketInput;
-    private static DataOutputStream socketOutput;
+    private static Socket clientSocket;
+    private static DataInputStream inputStream;
+    private static DataOutputStream outputStream;
+
+    
+    public static void main(String[] args) throws IOException {
+        connect();
+        Scanner input = new Scanner(System.in);
+
+        while (true) {
+            String message = input.nextLine();
+            messageSend(message);
+            System.out.println("Server message = " + messageWait());
+
+        }
+
+    }
+
 
     public ClientApp() {
         this(SERVER_HOST, SERVER_PORT);
@@ -34,11 +39,10 @@ public class ClientApp {
     }
 
     public static void connect() {
-
         try {
-            socketClient = new Socket(SERVER_HOST, SERVER_PORT);
-            socketOutput = new DataOutputStream(socketClient.getOutputStream()); //"запись" - в исходящий поток
-            socketInput = new DataInputStream(socketClient.getInputStream()); //"чтение" - из входящего потока
+            clientSocket = new Socket(SERVER_HOST, SERVER_PORT);
+            outputStream = new DataOutputStream(clientSocket.getOutputStream()); //"запись" - в исходящий поток
+            inputStream = new DataInputStream(clientSocket.getInputStream()); //"чтение" - из входящего потока
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,12 +50,20 @@ public class ClientApp {
 
     public static void messageSend(String message) throws IOException {
         try {
-            socketOutput.writeUTF(message);
+            outputStream.writeUTF(message);
         } catch (IOException e) {
-            System.err.println("Сообщение не отправлено на сервер" + "\n----------");
+            System.err.println("Сообщение не отправлено" + "\n----------");
             throw e;
         }
     }
 
+    public static String messageWait() throws IOException {
+        try {
+            return inputStream.readUTF();
+        } catch (IOException e) {
+            System.err.println("Сообщение не получено" + "\n----------");
+            throw e;
+        }
+    }
 
 }
