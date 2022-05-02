@@ -46,8 +46,6 @@ public class ServerEcho {
             }
             System.out.println("Client message: " + messageWait);
         }
-
-
     }
 
     public static void connect() {
@@ -83,6 +81,5 @@ public class ServerEcho {
             return null;
         }
     }
-
 
 }

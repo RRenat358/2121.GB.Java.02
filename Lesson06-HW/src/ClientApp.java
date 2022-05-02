@@ -9,12 +9,8 @@ public class ClientApp {
     public static final String SERVER_HOST = "localhost";
     public static final int SERVER_PORT = 8358;
 
-    private static String host;
-    private static int port;
-    private static Socket clientSocket;
     private static DataInputStream inputStream;
     private static DataOutputStream outputStream;
-
 
     public static void main(String[] args) throws IOException {
         connect();
@@ -49,12 +45,11 @@ public class ClientApp {
             }
             System.out.println("Server message: " + messageWait);
         }
-
     }
 
     public static void connect() {
         try {
-            clientSocket = new Socket(SERVER_HOST, SERVER_PORT);
+            Socket clientSocket = new Socket(SERVER_HOST, SERVER_PORT);
             outputStream = new DataOutputStream(clientSocket.getOutputStream()); //"запись" - в исходящий поток
             inputStream = new DataInputStream(clientSocket.getInputStream()); //"чтение" - из входящего потока
         } catch (IOException e) {
