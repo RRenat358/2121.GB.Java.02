@@ -32,14 +32,12 @@ public class Forward {
             }
             if (messageWait.equals("/end")) {
                 System.out.println("Command send: /end");
-//            messageSend(outputStream, "PORT [ " + CLIENT_PORT + " ] закрывает соединение");
                 System.out.println("Сетевое соединение закрыто");
                 break;
             }
             System.out.println("Client message: " + messageWait);
         }
     }
-
 
     public static void messageSend(DataOutputStream outputStream, String message) throws IOException {
         try {
