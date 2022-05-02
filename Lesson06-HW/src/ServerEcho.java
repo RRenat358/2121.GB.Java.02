@@ -86,10 +86,3 @@ public class ServerEcho {
 
 
 }
-
-
-//            if (messageWait.equals("/end")) {
-//                System.out.println("Client send [/end]");
-//                System.out.println("Сетевое соединение закрыто");
-//                break;
-//            }
