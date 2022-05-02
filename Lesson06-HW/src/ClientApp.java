@@ -5,6 +5,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class ClientApp {
+
     public static final String SERVER_HOST = "localhost";
     public static final int SERVER_PORT = 8358;
 
@@ -14,28 +15,41 @@ public class ClientApp {
     private static DataInputStream inputStream;
     private static DataOutputStream outputStream;
 
-    
+
     public static void main(String[] args) throws IOException {
         connect();
         Scanner input = new Scanner(System.in);
 
-        while (true) {
-            String message = input.nextLine();
-            messageSend(message);
-            System.out.println("Server message = " + messageWait());
+        Thread thread = new Thread(() -> {
+            while (true) {
+                String message = input.nextLine();
+                try {
+                    messageSend(message);
+                } catch (IOException e) {
+                    System.err.println("thread/while" + "\n----------");
+                }
+            }
+        });
+        thread.setDaemon(true);
+        thread.start();
 
+        while (true) {
+            String messageWait = messageWait();
+            if (messageWait == null) {
+                break;
+            }
+            if (messageWait.isEmpty()) {
+                continue;
+            }
+            if (messageWait.equals("/end")) {
+                System.out.println("Command send: /end");
+                messageSend("PORT [ " + SERVER_PORT + " ] закрывает соединение");
+                System.out.println("Сетевое соединение закрыто");
+                break;
+            }
+            System.out.println("Server message: " + messageWait);
         }
 
-    }
-
-
-    public ClientApp() {
-        this(SERVER_HOST, SERVER_PORT);
-    }
-
-    public ClientApp(String host, int port) {
-        ClientApp.host = host;
-        ClientApp.port = port;
     }
 
     public static void connect() {
@@ -57,12 +71,12 @@ public class ClientApp {
         }
     }
 
-    public static String messageWait() throws IOException {
+    public static String messageWait() {
         try {
             return inputStream.readUTF();
         } catch (IOException e) {
             System.err.println("Сообщение не получено" + "\n----------");
-            throw e;
+            return null;
         }
     }
 
