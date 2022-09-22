@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class ServerEcho {
 
-    private static final int CLIENT_PORT = 8358;
+    private static final int CLIENT_PORT = 13581;
 
     private static DataInputStream inputStream;
     private static DataOutputStream outputStream;
